@@ -12,14 +12,14 @@ const modals = () => {
 
                 modal.style.display = "block";
                 document.body.style.overflow = "hidden";
-                // document.body.classList.add('modal-open');
+                // document.body.classList.add('popup-');
             });
         });
-
+console.log("fasfsaf")
         close.addEventListener('click', () => {
             modal.style.display = "none";
             document.body.style.overflow = "";
-            // document.body.classList.remove('modal-open');
+            // document.body.classList.remove('popup-design');
         });
 
         modal.addEventListener('click', (e) => {
@@ -31,16 +31,16 @@ const modals = () => {
         });
     }
 
-    function showModalByTime(selector, time) {
-        setTimeout(function() {
-            document.querySelector(selector).style.display = 'block';
-            document.body.style.overflow = "hidden";
-        }, time);
-    }
+    // function showModalByTime(selector, time) {
+    //     setTimeout(function() {
+    //         document.querySelector(selector).style.display = 'block';
+    //         document.body.style.overflow = "hidden";
+    //     }, time);
+    // }
 
-    bindModal('.popup_engineer_btn', '.popup_engineer', '.popup_engineer .popup_close');
-    bindModal('.phone_link', '.popup', '.popup .popup_close');
-    // showModalByTime('.popup', 60000);
+    bindModal('.button-design', '.popup-design','.popup-design .popup-close');
+    bindModal('.button-consultation', '.popup-consultation', '.popup-consultation .popup_close');
+    // showModalByTime('.popup-design', 60000);
 };
 
 export default modals;
