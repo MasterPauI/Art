@@ -15,7 +15,6 @@ const modals = () => {
                 // document.body.classList.add('popup-');
             });
         });
-console.log("fasfsaf")
         close.addEventListener('click', () => {
             modal.style.display = "none";
             document.body.style.overflow = "";
@@ -39,7 +38,7 @@ console.log("fasfsaf")
     // }
 
     bindModal('.button-design', '.popup-design','.popup-design .popup-close');
-    bindModal('.button-consultation', '.popup-consultation', '.popup-consultation .popup_close');
+    bindModal('.button-consultation', '.popup-consultation', '.popup-consultation .popup-close');
     // showModalByTime('.popup-design', 60000);
 };
 
