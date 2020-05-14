@@ -930,14 +930,13 @@ module.exports = g;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Users_admin_Desktop_Art_src_js_modules_modals_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/js/modules/modals.js */ "./src/js/modules/modals.js");
+/* harmony import */ var _modules_modals_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/modals.js */ "./src/js/modules/modals.js");
 
 window.addEventListener('DOMContentLoaded', function () {
   "use strict";
 
-  Object(_Users_admin_Desktop_Art_src_js_modules_modals_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
+  Object(_modules_modals_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
 });
-console.log(1);
 
 /***/ }),
 
