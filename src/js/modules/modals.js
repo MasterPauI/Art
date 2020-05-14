@@ -12,7 +12,7 @@ const modals = () => {
 
                 modal.style.display = "block";
                 document.body.style.overflow = "hidden";
-                // document.body.classList.add('modal-open');
+                document.body.classList.add('modal-open');
             });
         });
 
@@ -38,9 +38,16 @@ const modals = () => {
         }, time);
     }
 
-    bindModal('.popup_engineer_btn', '.popup_engineer', '.popup_engineer .popup_close');
+    bindModal('.button-design','.popup-design','.popup-design .popup-close',
+        '.popup_engineer_btn', '.popup_engineer', '.popup_engineer .popup_close');
     bindModal('.phone_link', '.popup', '.popup .popup_close');
     // showModalByTime('.popup', 60000);
 };
 
-export default modals;
+//-------------------------------modificari
+
+
+
+
+
+export default modals
