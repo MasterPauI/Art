@@ -12,20 +12,20 @@ const modals = () => {
 
                 modal.style.display = "block";
                 document.body.style.overflow = "hidden";
-                // document.body.classList.add('popup-');
+                document.body.classList.add('popup-');
             });
         });
         close.addEventListener('click', () => {
             modal.style.display = "none";
             document.body.style.overflow = "";
-            // document.body.classList.remove('popup-design');
+            document.body.classList.remove('popup-design');
         });
 
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.style.display = "none";
                 document.body.style.overflow = "";
-                // document.body.classList.remove('modal-open');
+                document.body.classList.remove('modal-open');
             }
         });
     }
@@ -39,7 +39,25 @@ const modals = () => {
 
     bindModal('.button-design', '.popup-design','.popup-design .popup-close');
     bindModal('.button-consultation', '.popup-consultation', '.popup-consultation .popup-close');
+
+
+
+    const gift = document.querySelector(".fixed-gift");
+    gift.addEventListener("click", () => {
+        return gift.style.display = "none";
+    });
+    bindModal('.fixed-gift', '.popup-gift','.popup-gift .popup-close ');
+
+
+
+
+
     // showModalByTime('.popup-design', 60000);
+
+
+
+
 };
 
 export default modals;
+
