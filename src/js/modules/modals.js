@@ -12,42 +12,52 @@ const modals = () => {
 
                 modal.style.display = "block";
                 document.body.style.overflow = "hidden";
-                document.body.classList.add('modal-open');
+                document.body.classList.add('popup-');
             });
         });
-
         close.addEventListener('click', () => {
             modal.style.display = "none";
             document.body.style.overflow = "";
-            // document.body.classList.remove('modal-open');
+            document.body.classList.remove('popup-design');
         });
 
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.style.display = "none";
                 document.body.style.overflow = "";
-                // document.body.classList.remove('modal-open');
+                document.body.classList.remove('modal-open');
             }
         });
     }
 
-    function showModalByTime(selector, time) {
-        setTimeout(function() {
-            document.querySelector(selector).style.display = 'block';
-            document.body.style.overflow = "hidden";
-        }, time);
-    }
+    // function showModalByTime(selector, time) {
+    //     setTimeout(function() {
+    //         document.querySelector(selector).style.display = 'block';
+    //         document.body.style.overflow = "hidden";
+    //     }, time);
+    // }
 
-    bindModal('.button-design','.popup-design','.popup-design .popup-close',
-        '.popup_engineer_btn', '.popup_engineer', '.popup_engineer .popup_close');
-    bindModal('.phone_link', '.popup', '.popup .popup_close');
-    // showModalByTime('.popup', 60000);
+    bindModal('.button-design', '.popup-design','.popup-design .popup-close');
+    bindModal('.button-consultation', '.popup-consultation', '.popup-consultation .popup-close');
+
+
+
+    const gift = document.querySelector(".fixed-gift");
+    gift.addEventListener("click", () => {
+        return gift.style.display = "none";
+    });
+    bindModal('.fixed-gift', '.popup-gift','.popup-gift .popup-close ');
+
+
+
+
+
+    // showModalByTime('.popup-design', 60000);
+
+
+
+
 };
 
-//-------------------------------modificari
+export default modals;
 
-
-
-
-
-export default modals
