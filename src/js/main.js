@@ -7,6 +7,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // slider('.main-slider-item',"verticalUpDown");
     // slider('.main-slider-item',"orizontalLeft");
     // slider('.main-slider-item',"orizontalRight");
+
 });
 
 
