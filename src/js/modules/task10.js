@@ -1,5 +1,3 @@
-//                                        Task 10
-
 //                                     for slidershow
 
 function sliderAndButton () {
