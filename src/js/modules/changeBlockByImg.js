@@ -9,37 +9,42 @@ const block4 = document.querySelector('.size-4');
 loadEvent();
 
 function loadEvent() {
-block1.addEventListener('mouseover', runImg1);
-block2.addEventListener('mouseover', runImg2);
-block3.addEventListener('mouseover', runImg3);
-block4.addEventListener('mouseover', runImg4);
+    block1.addEventListener('mouseover', runImg1);
+    block2.addEventListener('mouseover', runImg2);
+    block3.addEventListener('mouseover', runImg3);
+    block4.addEventListener('mouseover', runImg4);
 
     block1.addEventListener('mouseout', closeImg1);
-    // block2.addEventListener('mouseout', closeImg2);
-    // block3.addEventListener('mouseout', closeImg3);
-    // block4.addEventListener('mouseout', closeImg4);
-
-
+    block2.addEventListener('mouseout', closeImg2);
+    block3.addEventListener('mouseout', closeImg3);
+    block4.addEventListener('mouseout', closeImg4);
 }
-//
+
 function runImg1() {
-    block1.src = "./assets/img/sizes-1-1.png"
-}
+    block1.src = "./assets/img/sizes-1-1.png";
+   }
     function closeImg1() {
-             document.querySelector('.size-1').removeAttribute(this.src)
+    block1.src = "./assets/img/sizes-1.png";
+    }
+function runImg2() {
+    block2.src = "./assets/img/sizes-2-1.png";
+}
+function closeImg2() {
+        block2.src = "./assets/img/sizes-2.png";
+    }
+function runImg3() {
+    block3.src = "./assets/img/sizes-3-1.png";
+}
+function closeImg3() {
+        block3.src = "./assets/img/sizes-3.png";
+    }
+function runImg4() {
+    block4.src = "./assets/img/sizes-4-1.png";
+}
+function closeImg4() {
+        block4.src = "./assets/img/sizes-4.png";
     }
 
-
-
-function runImg2() {
-    block2.src = "./assets/img/sizes-2-1.png"
-}
-function runImg3() {
-    block3.src = "./assets/img/sizes-3-1.png"
-}
-function runImg4() {
-    block4.src = "./assets/img/sizes-4-1.png"
-}
 
 };
 
