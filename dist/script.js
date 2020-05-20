@@ -933,7 +933,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_modals_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/modals.js */ "./src/js/modules/modals.js");
 /* harmony import */ var _modules_slide__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/slide */ "./src/js/modules/slide.js");
 /* harmony import */ var _modules_changeBlockByImg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/changeBlockByImg */ "./src/js/modules/changeBlockByImg.js");
-/* harmony import */ var _modules_task10_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/task10.js */ "./src/js/modules/task10.js");
+/* harmony import */ var _modules_sliderAndButton_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/sliderAndButton.js */ "./src/js/modules/sliderAndButton.js");
+/* harmony import */ var _modules_accordion__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/accordion */ "./src/js/modules/accordion.js");
+
 
 
 
@@ -947,8 +949,46 @@ window.addEventListener('DOMContentLoaded', function () {
   // slider('.main-slider-item',"orizontalRight");
 
   Object(_modules_changeBlockByImg__WEBPACK_IMPORTED_MODULE_2__["default"])();
-  Object(_modules_task10_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  Object(_modules_sliderAndButton_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  Object(_modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"])();
 });
+
+/***/ }),
+
+/***/ "./src/js/modules/accordion.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/accordion.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function accordion() {
+  var accHeader = document.querySelectorAll(".accordion-heading");
+  var accBlock = document.querySelectorAll('.accordion-block');
+
+  for (var i = 0; i < accHeader.length; i++) {
+    accHeader[i].onclick = function () {
+      var setClasses = !this.classList.contains('active');
+      setClass(accHeader, 'active', 'remove');
+      setClass(accBlock, 'show', 'remove');
+
+      if (setClasses) {
+        this.classList.toggle("active");
+        this.nextElementSibling.classList.toggle("show");
+      }
+    };
+  }
+
+  function setClass(els, className, fnName) {
+    for (var _i = 0; _i < els.length; _i++) {
+      els[_i].classList[fnName](className);
+    }
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (accordion);
 
 /***/ }),
 
@@ -1146,10 +1186,10 @@ var slider = function slider(slideName, direction) {
 
 /***/ }),
 
-/***/ "./src/js/modules/task10.js":
-/*!**********************************!*\
-  !*** ./src/js/modules/task10.js ***!
-  \**********************************/
+/***/ "./src/js/modules/sliderAndButton.js":
+/*!*******************************************!*\
+  !*** ./src/js/modules/sliderAndButton.js ***!
+  \*******************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
