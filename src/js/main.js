@@ -13,12 +13,9 @@ window.addEventListener('DOMContentLoaded', () => {
     // slider('.main-slider-item',"orizontalRight");
 
     blokByImg();
+    sliderAndButton()
 
 });
 
 
-    sliderAndButton();
-
-
-});
 

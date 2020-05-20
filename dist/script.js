@@ -932,7 +932,9 @@ module.exports = g;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_modals_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/modals.js */ "./src/js/modules/modals.js");
 /* harmony import */ var _modules_slide__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/slide */ "./src/js/modules/slide.js");
-/* harmony import */ var _modules_task10_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/task10.js */ "./src/js/modules/task10.js");
+/* harmony import */ var _modules_changeBlockByImg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/changeBlockByImg */ "./src/js/modules/changeBlockByImg.js");
+/* harmony import */ var _modules_task10_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/task10.js */ "./src/js/modules/task10.js");
+
 
 
 
@@ -944,8 +946,73 @@ window.addEventListener('DOMContentLoaded', function () {
   // slider('.feedback-slider-item',"orizontalLeft");
   // slider('.main-slider-item',"orizontalRight");
 
-  Object(_modules_task10_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  Object(_modules_changeBlockByImg__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  Object(_modules_task10_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
 });
+
+/***/ }),
+
+/***/ "./src/js/modules/changeBlockByImg.js":
+/*!********************************************!*\
+  !*** ./src/js/modules/changeBlockByImg.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var blokByImg = function blokByImg() {
+  var block1 = document.querySelector('.size-1');
+  var block2 = document.querySelector('.size-2');
+  var block3 = document.querySelector('.size-3');
+  var block4 = document.querySelector('.size-4');
+  loadEvent();
+
+  function loadEvent() {
+    block1.addEventListener('mouseover', runImg1);
+    block2.addEventListener('mouseover', runImg2);
+    block3.addEventListener('mouseover', runImg3);
+    block4.addEventListener('mouseover', runImg4);
+    block1.addEventListener('mouseout', closeImg1);
+    block2.addEventListener('mouseout', closeImg2);
+    block3.addEventListener('mouseout', closeImg3);
+    block4.addEventListener('mouseout', closeImg4);
+  }
+
+  function runImg1() {
+    block1.src = "./assets/img/sizes-1-1.png";
+  }
+
+  function closeImg1() {
+    block1.src = "./assets/img/sizes-1.png";
+  }
+
+  function runImg2() {
+    block2.src = "./assets/img/sizes-2-1.png";
+  }
+
+  function closeImg2() {
+    block2.src = "./assets/img/sizes-2.png";
+  }
+
+  function runImg3() {
+    block3.src = "./assets/img/sizes-3-1.png";
+  }
+
+  function closeImg3() {
+    block3.src = "./assets/img/sizes-3.png";
+  }
+
+  function runImg4() {
+    block4.src = "./assets/img/sizes-4-1.png";
+  }
+
+  function closeImg4() {
+    block4.src = "./assets/img/sizes-4.png";
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (blokByImg);
 
 /***/ }),
 
@@ -1008,94 +1075,6 @@ var modals = function modals() {
   });
   bindModal('.fixed-gift', '.popup-gift', '.popup-gift .popup-close ');
 }; // showModalByTime('.popup-design', 60000);
-// ------------------------------------------------------------------------------------
-//                                        Task 10
-//                                     for slider
-// function sliderAndButton () {
-//
-//     let slides = document.querySelectorAll(".feedback-slider-item"),
-//         arrowLeft = document.querySelector(".main-prev-btn"),
-//         arrowRight = document.querySelector(".main-next-btn"),
-//         mouse = document.querySelector(".feedback-slider"),
-//         current = 0;
-//
-//     showSlides();
-//
-//     function showSlides() {
-//
-//         let i;
-//         for (i = 0; i < slides.length; i++) {
-//             slides[i].style.display = "none";
-//         }
-//         current++;
-//         if (current > slides.length) {
-//             current = 1;
-//         }
-//
-//         slides[current - 1].style.display = "block";
-//     }
-//
-//     let slideInterval = setInterval(showSlides, 2000);
-//
-//     //                                       for button
-//
-// // Clear all images
-//     function reset() {
-//         for (let i = 0; i < slides.length; i++) {
-//             slides[i].style.display = "none";
-//         }
-//     }
-//
-// // Show prev
-//     function slideLeft() {
-//         reset();
-//         slides[current - 1].style.display = "block";
-//         current--;
-//     }
-//
-// // Show next
-//     function slideRight() {
-//         reset();
-//         slides[current + 1].style.display = "block";
-//         current++;
-//     }
-//
-// // Left arrow click
-//     arrowLeft.addEventListener("click", function () {
-//         if (current === 0) {
-//             current = slides.length;
-//         }
-//         slideLeft();
-//     });
-//
-// // Right arrow click
-//     arrowRight.addEventListener("click", function () {
-//         if (current === slides.length - 1) {
-//             current = -1;
-//         }
-//         slideRight();
-//     });
-//
-// //                         for mouse
-//
-//     function pauseSlideshow() {
-//         clearTimeout(slideInterval);
-//     }
-//
-//     function playSlideshow() {
-//         slideInterval = setInterval(showSlides, 2000);
-//     }
-//
-//     mouse.addEventListener("mouseover", () => {
-//         pauseSlideshow();
-//     });
-//
-//     mouse.addEventListener("mouseout", () => {
-//         playSlideshow();
-//     });
-// }
-//
-// sliderAndButton();
 
 
 /* harmony default export */ __webpack_exports__["default"] = (modals);
@@ -1176,7 +1155,6 @@ var slider = function slider(slideName, direction) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//                                        Task 10
 //                                     for slidershow
 function sliderAndButton() {
   var slides = document.querySelectorAll(".feedback-slider-item"),
