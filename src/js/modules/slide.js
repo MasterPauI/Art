@@ -5,24 +5,24 @@ const slider = (slideName, direction) =>{
     function showSlides() {
 
         let slides = document.querySelectorAll(slideName);
-         switch (direction) {
+        switch (direction) {
             case "verticalInDown":
-                slides.forEach((slid)=>{
+                slides.forEach((slid) => {
                     slid.classList.add("animated", "slideInDown");
                 });
                 break;
             case "verticalUpDown":
-                slides.forEach((slid)=>{
+                slides.forEach((slid) => {
                     slid.classList.add("animated", "slideInUp");
                 });
                 break;
             case "orizontalLeft":
-                slides.forEach((slid)=>{
+                slides.forEach((slid) => {
                     slid.classList.add("animated", "slideInLeft");
                 });
                 break;
             case "orizontalRight":
-                slides.forEach((slid)=>{
+                slides.forEach((slid) => {
                     slid.classList.add("animated", "slideInRight");
                 });
                 break;
@@ -32,12 +32,20 @@ const slider = (slideName, direction) =>{
             slides[i].style.display = "none";
         }
         slideCounter++;
-        if (slideCounter > slides.length) {slideCounter = 1}
+        if (slideCounter > slides.length) {
+            slideCounter = 1
+        }
 
-        slides[slideCounter-1].style.display = "block";
+        slides[slideCounter - 1].style.display = "block";
         setTimeout(showSlides, 3000);
+
     }
+
 };
+
+
+
+
 export default slider
 
 
