@@ -1,3 +1,5 @@
+import slider from "./slide";
+
 const modals = () => {
     function bindModal(triggerSelector, modalSelector, closeSelector) {
         const trigger = document.querySelectorAll(triggerSelector),
@@ -37,27 +39,20 @@ const modals = () => {
     //     }, time);
     // }
 
-    bindModal('.button-design', '.popup-design','.popup-design .popup-close');
+    bindModal('.button-design', '.popup-design', '.popup-design .popup-close');
     bindModal('.button-consultation', '.popup-consultation', '.popup-consultation .popup-close');
-
 
 
     const gift = document.querySelector(".fixed-gift");
     gift.addEventListener("click", () => {
         return gift.style.display = "none";
     });
-    bindModal('.fixed-gift', '.popup-gift','.popup-gift .popup-close ');
-
-
-
-
-
-    // showModalByTime('.popup-design', 60000);
-
-
+    bindModal('.fixed-gift', '.popup-gift', '.popup-gift .popup-close ');
 
 
 };
 
-export default modals;
+    // showModalByTime('.popup-design', 60000);
+
+export default modals
 
