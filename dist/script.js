@@ -1067,13 +1067,26 @@ var modals = function modals() {
   // }
 
 
-  bindModal('.button-design', '.popup-design', '.popup-design .popup-close');
-  bindModal('.button-consultation', '.popup-consultation', '.popup-consultation .popup-close');
   var gift = document.querySelector(".fixed-gift");
   gift.addEventListener("click", function () {
     return gift.style.display = "none";
   });
   bindModal('.fixed-gift', '.popup-gift', '.popup-gift .popup-close ');
+  var popupGift = document.querySelector('.popup-gift');
+  window.addEventListener('scroll', function () {
+    var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    var scroled = window.scrollY;
+
+    if (Math.ceil(scroled) === scrollable) {
+      popupGift.style.display = "block";
+
+      if (popupGift.style.display) {
+        gift.style.display = "none";
+      }
+    }
+  });
+  bindModal('.button-design', '.popup-design', '.popup-design .popup-close');
+  bindModal('.button-consultation', '.popup-consultation', '.popup-consultation .popup-close');
 }; // showModalByTime('.popup-design', 60000);
 
 

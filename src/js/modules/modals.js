@@ -39,15 +39,31 @@ const modals = () => {
     //     }, time);
     // }
 
-    bindModal('.button-design', '.popup-design', '.popup-design .popup-close');
-    bindModal('.button-consultation', '.popup-consultation', '.popup-consultation .popup-close');
-
-
     const gift = document.querySelector(".fixed-gift");
     gift.addEventListener("click", () => {
         return gift.style.display = "none";
     });
+
     bindModal('.fixed-gift', '.popup-gift', '.popup-gift .popup-close ');
+
+
+
+    const popupGift = document.querySelector('.popup-gift');
+    window.addEventListener('scroll',()=>{
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const scroled = window.scrollY;
+
+        if (Math.ceil(scroled) === scrollable){
+            popupGift.style.display = "block";
+            if(popupGift.style.display) {
+                gift.style.display = "none";
+            }
+        }
+
+    });
+
+    bindModal('.button-design', '.popup-design', '.popup-design .popup-close');
+    bindModal('.button-consultation', '.popup-consultation', '.popup-consultation .popup-close');
 
 
 };
