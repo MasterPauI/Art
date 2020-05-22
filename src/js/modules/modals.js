@@ -44,30 +44,39 @@ const modals = () => {
 
     bindModal('.fixed-gift', '.popup-gift', '.popup-gift .popup-close ');
 
+    // window.addEventListener('scroll',()=>{
+    //     const popupGift = document.querySelector('.popup-gift');
+    //     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    //     const scroled = window.scrollY;
+    //
+    //     if (Math.ceil(scroled) === scrollable){
+    //         popupGift.style.display = "block";
+    //         if(popupGift.style.display) {
+    //             return gift.style.display = "none";
+    //         }
+    //     }
+    // });
 
+    let exClose = window.addEventListener('scroll', closegift);
+    if(exClose){
+        window.removeEventListener('scroll', closegift);
+    }
 
-
-    window.addEventListener('scroll',()=>{
+    function closegift(){
         const popupGift = document.querySelector('.popup-gift');
         const scrollable = document.documentElement.scrollHeight - window.innerHeight;
         const scroled = window.scrollY;
 
-        if (Math.ceil(scroled) === scrollable){
-
-            popupGift.style.display = "block";
-
-            if(popupGift.style.display) {
-                return gift.style.display = "none";
+            if (Math.ceil(scroled) === scrollable) {
+                popupGift.style.display = "block";
+                if (popupGift.style.display) {
+                    return gift.style.display = "none";
+                }
             }
-
-
-        }
-
-    });
+    }
 
     bindModal('.button-design', '.popup-design', '.popup-design .popup-close');
     bindModal('.button-consultation', '.popup-consultation', '.popup-consultation .popup-close');
-
 
 };
 
