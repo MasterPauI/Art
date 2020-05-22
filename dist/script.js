@@ -1027,8 +1027,6 @@ var blokByImg = function blokByImg() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
 /* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _slide__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./slide */ "./src/js/modules/slide.js");
-
 
 
 var modals = function modals() {
@@ -1072,8 +1070,8 @@ var modals = function modals() {
     return gift.style.display = "none";
   });
   bindModal('.fixed-gift', '.popup-gift', '.popup-gift .popup-close ');
-  var popupGift = document.querySelector('.popup-gift');
   window.addEventListener('scroll', function () {
+    var popupGift = document.querySelector('.popup-gift');
     var scrollable = document.documentElement.scrollHeight - window.innerHeight;
     var scroled = window.scrollY;
 
@@ -1081,7 +1079,7 @@ var modals = function modals() {
       popupGift.style.display = "block";
 
       if (popupGift.style.display) {
-        gift.style.display = "none";
+        return gift.style.display = "none";
       }
     }
   });

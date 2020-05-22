@@ -1,5 +1,3 @@
-import slider from "./slide";
-
 const modals = () => {
     function bindModal(triggerSelector, modalSelector, closeSelector) {
         const trigger = document.querySelectorAll(triggerSelector),
@@ -48,16 +46,21 @@ const modals = () => {
 
 
 
-    const popupGift = document.querySelector('.popup-gift');
+
     window.addEventListener('scroll',()=>{
+        const popupGift = document.querySelector('.popup-gift');
         const scrollable = document.documentElement.scrollHeight - window.innerHeight;
         const scroled = window.scrollY;
 
         if (Math.ceil(scroled) === scrollable){
+
             popupGift.style.display = "block";
+
             if(popupGift.style.display) {
-                gift.style.display = "none";
+                return gift.style.display = "none";
             }
+
+
         }
 
     });
