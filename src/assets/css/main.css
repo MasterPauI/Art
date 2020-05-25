@@ -907,6 +907,19 @@ h4 {
   background-color: #f7e7e6;
   padding: 3rem 4rem;
 }
+
+.accordion-block {
+  display: none;
+}
+
+.accordion-block.show {
+  display: block !important;
+}
+
+.accordion-heading.active {
+  color: #c51abb;
+}
+
 .often-questions .accordion-block:before {
   content: '';
   position: absolute;

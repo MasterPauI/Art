@@ -1,7 +1,9 @@
 import modals from "./modules/modals.js"
 import slider from "./modules/slide"
-import blokByImg from "./modules/changeBlockByImg";
-import sliderAndButton from "./modules/task10.js"
+import blokByImg from "./modules/changeBlockByImg"
+import sliderAndButton from "./modules/sliderAndButton.js"
+import accordion from "./modules/accordion";
+import inactivityTime from "./modules/showModalByTime";
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -13,8 +15,9 @@ window.addEventListener('DOMContentLoaded', () => {
     // slider('.main-slider-item',"orizontalRight");
 
     blokByImg();
-    sliderAndButton()
-
+    sliderAndButton ();
+    accordion ();
+    inactivityTime();
 });
 
 
