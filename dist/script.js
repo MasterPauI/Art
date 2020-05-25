@@ -935,6 +935,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_changeBlockByImg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/changeBlockByImg */ "./src/js/modules/changeBlockByImg.js");
 /* harmony import */ var _modules_sliderAndButton_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/sliderAndButton.js */ "./src/js/modules/sliderAndButton.js");
 /* harmony import */ var _modules_accordion__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/accordion */ "./src/js/modules/accordion.js");
+/* harmony import */ var _modules_showModalByTime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/showModalByTime */ "./src/js/modules/showModalByTime.js");
+
 
 
 
@@ -951,6 +953,7 @@ window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_changeBlockByImg__WEBPACK_IMPORTED_MODULE_2__["default"])();
   Object(_modules_sliderAndButton_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
   Object(_modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"])();
+  Object(_modules_showModalByTime__WEBPACK_IMPORTED_MODULE_5__["default"])();
 });
 
 /***/ }),
@@ -1101,23 +1104,70 @@ var modals = function modals() {
     });
   } // function showModalByTime(selector, time) {
   //     setTimeout(function() {
-  //         document.querySelector(selector).style.display = 'block';
+  //         document.querySelector(selector).style.display = "block";
   //         document.body.style.overflow = "hidden";
   //     }, time);
   // }
 
 
   bindModal('.button-design', '.popup-design', '.popup-design .popup-close');
-  bindModal('.button-consultation', '.popup-consultation', '.popup-consultation .popup-close');
+  bindModal('.button-consultation', '.popup-consultation', '.popup-consultation .popup-close'); // showModalByTime(".popup-consultation", 5000);
+
   var gift = document.querySelector(".fixed-gift");
   gift.addEventListener("click", function () {
+    // localStorage.setItem ("active", "true");
     return gift.style.display = "none";
   });
-  bindModal('.fixed-gift', '.popup-gift', '.popup-gift .popup-close ');
+  bindModal('.fixed-gift', '.popup-gift', '.popup-gift .popup-close');
 }; // showModalByTime('.popup-design', 60000);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (modals);
+
+/***/ }),
+
+/***/ "./src/js/modules/showModalByTime.js":
+/*!*******************************************!*\
+  !*** ./src/js/modules/showModalByTime.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var inactivityTime = function inactivityTime() {
+  var button = document.querySelectorAll(".button");
+  var timeoutId;
+
+  function startTimer() {
+    // window.setTimeout returns an Id that can be used to start and stop a timer
+    timeoutId = setTimeout(doInactive, 4000);
+  }
+
+  startTimer();
+
+  function doInactive() {
+    // does whatever you need it to actually do - probably signs them out or stops polling the server for info
+    document.querySelector(".popup-consultation").style.display = "block";
+    document.body.style.overflow = "hidden";
+  }
+
+  function stopTimeout() {
+    button.forEach(function (item) {
+      item.addEventListener("click", function () {
+        clearTimeout(timeoutId);
+      });
+    });
+  }
+
+  stopTimeout();
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (inactivityTime);
 
 /***/ }),
 

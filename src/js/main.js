@@ -3,6 +3,7 @@ import slider from "./modules/slide"
 import blokByImg from "./modules/changeBlockByImg"
 import sliderAndButton from "./modules/sliderAndButton.js"
 import accordion from "./modules/accordion";
+import inactivityTime from "./modules/showModalByTime";
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -16,7 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
     blokByImg();
     sliderAndButton ();
     accordion ();
-
+    inactivityTime();
 });
 
 
