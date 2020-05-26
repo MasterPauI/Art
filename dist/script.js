@@ -1072,9 +1072,11 @@ var blokByImg = function blokByImg() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var closePopupGift = function closePopupGift() {
-  var closeBtnx = document.querySelector('.popup-close');
+  var closeBtnx = document.querySelector('.popup-gift .popup-close');
   var popupGift = document.querySelector('.popup-gift');
-  var fixedGift = document.querySelector(".fixed-gift");
+  var fixedGift = document.querySelector(".fixed-gift"); // const button = document.querySelector('button');
+  // button.addEventListener('click')
+
   window.addEventListener('scroll', closeGift);
 
   function closeGift() {
@@ -1095,6 +1097,10 @@ var closePopupGift = function closePopupGift() {
     window.removeEventListener('scroll', closeGift);
   });
 };
+
+function clickButon(e) {
+  console.log(e.target);
+}
 
 /* harmony default export */ __webpack_exports__["default"] = (closePopupGift);
 
@@ -1184,7 +1190,7 @@ var inactivityTime = function inactivityTime() {
 
   function startTimer() {
     // window.setTimeout returns an Id that can be used to start and stop a timer
-    timeoutId = setTimeout(doInactive, 4000);
+    timeoutId = setTimeout(doInactive, 60000);
   }
 
   startTimer();
