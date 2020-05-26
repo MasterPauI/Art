@@ -1091,7 +1091,6 @@ var closePopupGift = function closePopupGift() {
   }
 
   closeBtnx.addEventListener('click', function () {
-    // popupGift.classList.remove('popup-gift');
     window.removeEventListener('scroll', closeGift);
   });
 };
@@ -1179,12 +1178,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var inactivityTime = function inactivityTime() {
-  var button = document.querySelectorAll(".button");
-  var timeoutId;
+  var button = document.querySelectorAll(".button"),
+      gift = document.querySelectorAll(".popup-gift"),
+      timeout;
 
   function startTimer() {
     // window.setTimeout returns an Id that can be used to start and stop a timer
-    timeoutId = setTimeout(doInactive, 60000);
+    timeout = setTimeout(doInactive, 60000);
   }
 
   startTimer();
@@ -1198,12 +1198,22 @@ var inactivityTime = function inactivityTime() {
   function stopTimeout() {
     button.forEach(function (item) {
       item.addEventListener("click", function () {
-        clearTimeout(timeoutId);
+        clearTimeout(timeout);
       });
     });
   }
 
   stopTimeout();
+
+  function stopTimeoutScroll() {
+    gift.forEach(function (el) {
+      el.addEventListener("click", function () {
+        clearTimeout(timeout);
+      });
+    });
+  }
+
+  stopTimeoutScroll();
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (inactivityTime);
