@@ -6,7 +6,7 @@ let inactivityTime = () => {
 
     function startTimer () {
         // window.setTimeout returns an Id that can be used to start and stop a timer
-        timeoutId = setTimeout (doInactive, 60000);
+        timeout = setTimeout (doInactive, 60000);
 
 
     }
