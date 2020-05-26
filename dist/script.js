@@ -1179,7 +1179,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var inactivityTime = function inactivityTime() {
   var button = document.querySelectorAll(".button"),
-      gift = document.querySelectorAll(".popup-gift"),
+      gift = document.querySelectorAll(".popup-gift .popup-close"),
       timeout;
 
   function startTimer() {
@@ -1195,16 +1195,6 @@ var inactivityTime = function inactivityTime() {
     document.body.style.overflow = "hidden";
   }
 
-  function stopTimeout() {
-    button.forEach(function (item) {
-      item.addEventListener("click", function () {
-        clearTimeout(timeout);
-      });
-    });
-  }
-
-  stopTimeout();
-
   function stopTimeoutScroll() {
     gift.forEach(function (el) {
       el.addEventListener("click", function () {
@@ -1214,6 +1204,16 @@ var inactivityTime = function inactivityTime() {
   }
 
   stopTimeoutScroll();
+
+  function stopTimeout() {
+    button.forEach(function (item) {
+      item.addEventListener("click", function () {
+        clearTimeout(timeout);
+      });
+    });
+  }
+
+  stopTimeout();
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (inactivityTime);
