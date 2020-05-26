@@ -1,7 +1,7 @@
 let inactivityTime = () => {
 
     let button = document.querySelectorAll (".button"),
-        gift = document.querySelectorAll (".popup-gift .popup-close"),
+        gift = document.querySelectorAll (".popup-gift"),
         timeout;
 
     function startTimer () {
@@ -17,15 +17,6 @@ let inactivityTime = () => {
         document.body.style.overflow = "hidden";
     }
 
-    function stopTimeoutScroll () {
-        gift.forEach (el => {
-            el.addEventListener ("click", () => {
-                clearTimeout (timeout)
-            })
-        })
-    }
-    stopTimeoutScroll();
-
     function stopTimeout () {
         button.forEach (item => {
             item.addEventListener ("click", () => {
@@ -34,6 +25,15 @@ let inactivityTime = () => {
         });
     }
     stopTimeout();
+
+    function stopTimeoutScroll () {
+        gift.forEach (el => {
+            el.addEventListener ("click", () => {
+                clearTimeout (timeout)
+            })
+        })
+    }
+    stopTimeoutScroll();
 
 };
 
