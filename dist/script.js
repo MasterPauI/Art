@@ -1217,7 +1217,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var inactivityTime = function inactivityTime() {
   var button = document.querySelectorAll(".button"),
-      gift = document.querySelectorAll(".popup-gift .popup-close"),
+      gift = document.querySelectorAll(".popup-gift"),
       timeout;
 
   function startTimer() {
