@@ -1,11 +1,13 @@
 let inactivityTime = () => {
 
-    let button = document.querySelectorAll (".button");
-    let timeoutId;
+    let button = document.querySelectorAll (".button"),
+        gift = document.querySelectorAll (".popup-gift .popup-close"),
+        timeout;
 
     function startTimer () {
         // window.setTimeout returns an Id that can be used to start and stop a timer
         timeoutId = setTimeout (doInactive, 60000);
+
 
     }
     startTimer();
@@ -16,10 +18,19 @@ let inactivityTime = () => {
         document.body.style.overflow = "hidden";
     }
 
+    function stopTimeoutScroll () {
+        gift.forEach (el => {
+            el.addEventListener ("click", () => {
+                clearTimeout (timeout)
+            })
+        })
+    }
+    stopTimeoutScroll();
+
     function stopTimeout () {
         button.forEach (item => {
             item.addEventListener ("click", () => {
-                clearTimeout (timeoutId);
+                clearTimeout (timeout);
             })
         });
     }
