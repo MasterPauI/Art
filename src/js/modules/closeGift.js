@@ -3,8 +3,6 @@ const closePopupGift = ()=> {
     const closeBtnx = document.querySelector('.popup-gift .popup-close');
     const popupGift = document.querySelector('.popup-gift');
     const fixedGift = document.querySelector(".fixed-gift");
-    // const button = document.querySelector('button');
-    // button.addEventListener('click')
 
     window.addEventListener('scroll', closeGift);
     function closeGift(){
@@ -29,7 +27,5 @@ const closePopupGift = ()=> {
 
 
 };
-function clickButon(e){
-    console.log(e.target);
-}
+
 export default closePopupGift
