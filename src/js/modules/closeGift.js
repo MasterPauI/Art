@@ -2,12 +2,7 @@
 const closePopupGift = ()=> {
     const closeBtnx = document.querySelector('.popup-close');
     const popupGift = document.querySelector('.popup-gift');
-    const gift = document.querySelector(".fixed-gift");
-
-
-    gift.addEventListener("click", () => {
-        return gift.style.display = "none";
-    });
+    const fixedGift = document.querySelector(".fixed-gift");
 
     window.addEventListener('scroll', closeGift);
     function closeGift(){
@@ -17,14 +12,14 @@ const closePopupGift = ()=> {
         if (Math.ceil(scroled) === scrollable){
             popupGift.style.display = "block";
             if(popupGift.style.display) {
-                return gift.style.display = "none";
+                return fixedGift.style.display = "none";
             }
         }
 
     }
 
     closeBtnx.addEventListener('click',()=>{
-        popupGift.classList.remove('popup-gift');
+        // popupGift.classList.remove('popup-gift');
         window.removeEventListener('scroll', closeGift);
 
     });

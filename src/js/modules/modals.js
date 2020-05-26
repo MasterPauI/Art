@@ -1,3 +1,4 @@
+
 const modals = () => {
     function bindModal(triggerSelector, modalSelector, closeSelector) {
         const trigger = document.querySelectorAll(triggerSelector),
@@ -15,6 +16,7 @@ const modals = () => {
                 document.body.classList.add('popup-');
             });
         });
+
         close.addEventListener('click', () => {
             modal.style.display = "none";
             document.body.style.overflow = "";
@@ -30,10 +32,28 @@ const modals = () => {
         });
     }
 
+    // function showModalByTime(selector, time) {
+    //     setTimeout(function() {
+    //         document.querySelector(selector).style.display = "block";
+    //         document.body.style.overflow = "hidden";
+    //     }, time);
+    // }
 
-    bindModal('.fixed-gift', '.popup-gift', '.popup-gift .popup-close ');
+
     bindModal('.button-design', '.popup-design', '.popup-design .popup-close');
     bindModal('.button-consultation', '.popup-consultation', '.popup-consultation .popup-close');
+
+    // showModalByTime(".popup-consultation", 5000);
+
+
+    const gift = document.querySelector(".fixed-gift");
+    gift.addEventListener("click", () => {
+        // localStorage.setItem ("active", "true");
+        return gift.style.display = "none";
+    });
+    bindModal ('.fixed-gift', '.popup-gift', '.popup-gift .popup-close');
+
+
 
 };
 
