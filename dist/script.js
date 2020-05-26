@@ -934,6 +934,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_slide__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/slide */ "./src/js/modules/slide.js");
 /* harmony import */ var _modules_changeBlockByImg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/changeBlockByImg */ "./src/js/modules/changeBlockByImg.js");
 /* harmony import */ var _modules_task10_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/task10.js */ "./src/js/modules/task10.js");
+/* harmony import */ var _modules_closeGift__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/closeGift */ "./src/js/modules/closeGift.js");
+
 
 
 
@@ -948,6 +950,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
   Object(_modules_changeBlockByImg__WEBPACK_IMPORTED_MODULE_2__["default"])();
   Object(_modules_task10_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  Object(_modules_closeGift__WEBPACK_IMPORTED_MODULE_4__["default"])();
 });
 
 /***/ }),
@@ -1016,6 +1019,47 @@ var blokByImg = function blokByImg() {
 
 /***/ }),
 
+/***/ "./src/js/modules/closeGift.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/closeGift.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var closePopupGift = function closePopupGift() {
+  var closeBtnx = document.querySelector('.popup-close');
+  var popupGift = document.querySelector('.popup-gift');
+  var gift = document.querySelector(".fixed-gift");
+  gift.addEventListener("click", function () {
+    return gift.style.display = "none";
+  });
+  window.addEventListener('scroll', closeGift);
+
+  function closeGift() {
+    var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    var scroled = window.scrollY;
+
+    if (Math.ceil(scroled) === scrollable) {
+      popupGift.style.display = "block";
+
+      if (popupGift.style.display) {
+        return gift.style.display = "none";
+      }
+    }
+  }
+
+  closeBtnx.addEventListener('click', function () {
+    popupGift.classList.remove('popup-gift');
+    window.removeEventListener('scroll', closeGift);
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (closePopupGift);
+
+/***/ }),
+
 /***/ "./src/js/modules/modals.js":
 /*!**********************************!*\
   !*** ./src/js/modules/modals.js ***!
@@ -1057,51 +1101,9 @@ var modals = function modals() {
         document.body.classList.remove('modal-open');
       }
     });
-  } // function showModalByTime(selector, time) {
-  //     setTimeout(function() {
-  //         document.querySelector(selector).style.display = 'block';
-  //         document.body.style.overflow = "hidden";
-  //     }, time);
-  // }
-
-
-  var gift = document.querySelector(".fixed-gift");
-  gift.addEventListener("click", function () {
-    return gift.style.display = "none";
-  });
-  bindModal('.fixed-gift', '.popup-gift', '.popup-gift .popup-close '); // window.addEventListener('scroll',()=>{
-  //     const popupGift = document.querySelector('.popup-gift');
-  //     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-  //     const scroled = window.scrollY;
-  //
-  //     if (Math.ceil(scroled) === scrollable){
-  //         popupGift.style.display = "block";
-  //         if(popupGift.style.display) {
-  //             return gift.style.display = "none";
-  //         }
-  //     }
-  // });
-
-  var exClose = window.addEventListener('scroll', closegift);
-
-  if (exClose) {
-    window.removeEventListener('scroll', closegift);
   }
 
-  function closegift() {
-    var popupGift = document.querySelector('.popup-gift');
-    var scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    var scroled = window.scrollY;
-
-    if (Math.ceil(scroled) === scrollable) {
-      popupGift.style.display = "block";
-
-      if (popupGift.style.display) {
-        return gift.style.display = "none";
-      }
-    }
-  }
-
+  bindModal('.fixed-gift', '.popup-gift', '.popup-gift .popup-close ');
   bindModal('.button-design', '.popup-design', '.popup-design .popup-close');
   bindModal('.button-consultation', '.popup-consultation', '.popup-consultation .popup-close');
 }; // showModalByTime('.popup-design', 60000);

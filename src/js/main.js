@@ -2,6 +2,7 @@ import modals from "./modules/modals.js"
 import slider from "./modules/slide"
 import blokByImg from "./modules/changeBlockByImg";
 import sliderAndButton from "./modules/task10.js"
+import closePopupGift from "./modules/closeGift"
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -13,7 +14,9 @@ window.addEventListener('DOMContentLoaded', () => {
     // slider('.main-slider-item',"orizontalRight");
 
     blokByImg();
-    sliderAndButton()
+    sliderAndButton();
+    closePopupGift();
+
 
 });
 
