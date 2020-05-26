@@ -936,6 +936,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_sliderAndButton_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/sliderAndButton.js */ "./src/js/modules/sliderAndButton.js");
 /* harmony import */ var _modules_accordion__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/accordion */ "./src/js/modules/accordion.js");
 /* harmony import */ var _modules_showModalByTime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/showModalByTime */ "./src/js/modules/showModalByTime.js");
+/* harmony import */ var _modules_scroll_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/scroll.js */ "./src/js/modules/scroll.js");
+
 
 
 
@@ -954,6 +956,7 @@ window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_sliderAndButton_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
   Object(_modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"])();
   Object(_modules_showModalByTime__WEBPACK_IMPORTED_MODULE_5__["default"])();
+  Object(_modules_scroll_js__WEBPACK_IMPORTED_MODULE_6__["default"])();
 });
 
 /***/ }),
@@ -1126,6 +1129,44 @@ var modals = function modals() {
 
 /***/ }),
 
+/***/ "./src/js/modules/scroll.js":
+/*!**********************************!*\
+  !*** ./src/js/modules/scroll.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var closePopupGift = function closePopupGift() {
+  var closeBtnx = document.querySelector('.popup-close');
+  var popupGift = document.querySelector('.popup-gift');
+  var fixedGift = document.querySelector(".fixed-gift");
+  window.addEventListener('scroll', closeGift);
+
+  function closeGift() {
+    var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    var scroled = window.scrollY;
+
+    if (Math.ceil(scroled) === scrollable) {
+      popupGift.style.display = "block";
+
+      if (popupGift.style.display) {
+        return fixedGift.style.display = "none";
+      }
+    }
+  }
+
+  closeBtnx.addEventListener('click', function () {
+    // popupGift.classList.remove('popup-gift');
+    window.removeEventListener('scroll', closeGift);
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (closePopupGift);
+
+/***/ }),
+
 /***/ "./src/js/modules/showModalByTime.js":
 /*!*******************************************!*\
   !*** ./src/js/modules/showModalByTime.js ***!
@@ -1140,12 +1181,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var inactivityTime = function inactivityTime() {
-  var button = document.querySelectorAll(".button");
-  var timeoutId;
+  var button = document.querySelectorAll(".button"),
+      gift = document.querySelectorAll(".popup-gift .popup-close"),
+      timeout;
 
   function startTimer() {
     // window.setTimeout returns an Id that can be used to start and stop a timer
-    timeoutId = setTimeout(doInactive, 4000);
+    timeout = setTimeout(doInactive, 20000);
   }
 
   startTimer();
@@ -1156,10 +1198,20 @@ var inactivityTime = function inactivityTime() {
     document.body.style.overflow = "hidden";
   }
 
+  function stopTimeoutScroll() {
+    gift.forEach(function (el) {
+      el.addEventListener("click", function () {
+        clearTimeout(timeout);
+      });
+    });
+  }
+
+  stopTimeoutScroll();
+
   function stopTimeout() {
     button.forEach(function (item) {
       item.addEventListener("click", function () {
-        clearTimeout(timeoutId);
+        clearTimeout(timeout);
       });
     });
   }
