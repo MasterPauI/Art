@@ -1,4 +1,3 @@
-import slider from "./slide";
 
 const modals = () => {
     function bindModal(triggerSelector, modalSelector, closeSelector) {
