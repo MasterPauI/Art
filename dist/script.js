@@ -1067,6 +1067,8 @@ var blokByImg = function blokByImg() {
     for (var i = 0; i < parent3.getElementsByTagName('p').length; i++) {
       parent3.getElementsByTagName('p')[i].style.display = 'none';
     }
+
+    parent3.getElementsByTagName('p')[3].style.display = 'block';
   }
 
   function closeImg3() {

@@ -54,6 +54,7 @@ function runImg3() {
     for(let i=0; i<parent3.getElementsByTagName('p').length; i++) {
         parent3.getElementsByTagName('p')[i].style.display = 'none';
     }
+    parent3.getElementsByTagName('p')[3].style.display = 'block';
 }
 function closeImg3() {
         block3.src = "./assets/img/sizes-3.png";
