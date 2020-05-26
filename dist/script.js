@@ -1140,12 +1140,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var inactivityTime = function inactivityTime() {
-  var button = document.querySelectorAll(".button");
-  var timeoutId;
+  var button = document.querySelectorAll(".button"),
+      gift = document.querySelectorAll(".popup-gift .popup-close"),
+      timeout;
 
   function startTimer() {
     // window.setTimeout returns an Id that can be used to start and stop a timer
-    timeoutId = setTimeout(doInactive, 4000);
+    timeout = setTimeout(doInactive, 60000);
   }
 
   startTimer();
@@ -1156,10 +1157,20 @@ var inactivityTime = function inactivityTime() {
     document.body.style.overflow = "hidden";
   }
 
+  function stopTimeoutScroll() {
+    gift.forEach(function (el) {
+      el.addEventListener("click", function () {
+        clearTimeout(timeout);
+      });
+    });
+  }
+
+  stopTimeoutScroll();
+
   function stopTimeout() {
     button.forEach(function (item) {
       item.addEventListener("click", function () {
-        clearTimeout(timeoutId);
+        clearTimeout(timeout);
       });
     });
   }
