@@ -4,7 +4,8 @@ import blokByImg from "./modules/changeBlockByImg"
 import sliderAndButton from "./modules/sliderAndButton.js"
 import accordion from "./modules/accordion";
 import inactivityTime from "./modules/showModalByTime";
-import closePopupGift from "./modules/closeGift"
+import closePopupGift from "./modules/closeGift";
+import filter from "./modules/filtru.js"
 
 window.addEventListener('DOMContentLoaded', () => {
     "use strict";
@@ -19,6 +20,7 @@ window.addEventListener('DOMContentLoaded', () => {
     accordion ();
     inactivityTime();
     closePopupGift();
+    filter();
 });
 
 
