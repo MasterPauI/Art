@@ -15,9 +15,9 @@ window.addEventListener('DOMContentLoaded', () => {
     // slider('.main-slider-item',"orizontalRight");
 
     blokByImg();
-    sliderAndButton ();
-    accordion ();
-    inactivityTime();
+    sliderAndButton (".feedback-slider-item", ".main-prev-btn", ".main-next-btn", ".feedback-slider");
+    accordion (".accordion-heading", ".accordion-block");
+    inactivityTime ();
     closePopupGift();
 });
 

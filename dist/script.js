@@ -953,8 +953,8 @@ window.addEventListener('DOMContentLoaded', function () {
   // slider('.main-slider-item',"orizontalRight");
 
   Object(_modules_changeBlockByImg__WEBPACK_IMPORTED_MODULE_2__["default"])();
-  Object(_modules_sliderAndButton_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
-  Object(_modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"])();
+  Object(_modules_sliderAndButton_js__WEBPACK_IMPORTED_MODULE_3__["default"])(".feedback-slider-item", ".main-prev-btn", ".main-next-btn", ".feedback-slider");
+  Object(_modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"])(".accordion-heading", ".accordion-block");
   Object(_modules_showModalByTime__WEBPACK_IMPORTED_MODULE_5__["default"])();
   Object(_modules_closeGift__WEBPACK_IMPORTED_MODULE_6__["default"])();
 });
@@ -970,9 +970,9 @@ window.addEventListener('DOMContentLoaded', function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function accordion() {
-  var accHeader = document.querySelectorAll(".accordion-heading");
-  var accBlock = document.querySelectorAll('.accordion-block');
+function accordion(header, block) {
+  var accHeader = document.querySelectorAll(header);
+  var accBlock = document.querySelectorAll(block);
 
   for (var i = 0; i < accHeader.length; i++) {
     accHeader[i].onclick = function () {
@@ -1331,11 +1331,11 @@ var slider = function slider(slideName, direction) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 //                                     for slidershow
-function sliderAndButton() {
-  var slides = document.querySelectorAll(".feedback-slider-item"),
-      arrowLeft = document.querySelector(".main-prev-btn"),
-      arrowRight = document.querySelector(".main-next-btn"),
-      mouse = document.querySelector(".feedback-slider"),
+function sliderAndButton(slider, btnLeft, btnRight, mouseEvent) {
+  var slides = document.querySelectorAll(slider),
+      arrowLeft = document.querySelector(btnLeft),
+      arrowRight = document.querySelector(btnRight),
+      mouse = document.querySelector(mouseEvent),
       current = 0;
   showSlides();
 
@@ -1395,19 +1395,19 @@ function sliderAndButton() {
     slideRight();
   }); //                         for mouse
 
-  function pauseSlideshow() {
+  function pauseSlide() {
     clearTimeout(slideInterval);
   }
 
-  function playSlideshow() {
+  function playSlide() {
     slideInterval = setInterval(showSlides, 2000);
   }
 
   mouse.addEventListener("mouseover", function () {
-    pauseSlideshow();
+    pauseSlide();
   });
   mouse.addEventListener("mouseout", function () {
-    playSlideshow();
+    playSlide();
   });
 }
 
