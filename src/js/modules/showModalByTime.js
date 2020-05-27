@@ -1,7 +1,7 @@
 let inactivityTime = () => {
 
     let button = document.querySelectorAll (".button"),
-        gift = document.querySelectorAll (".popup-gift .popup-close"),
+        gift = document.querySelectorAll (".popup-gift"),
         timeout;
 
     function startTimer () {
