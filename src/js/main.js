@@ -45,3 +45,18 @@ function getPrice() {
         priceElement.textContent = price;
     }
 }
+
+function openModal() {
+    let modal = document.getElementById('modal-header');
+    if(modal.style.display === 'flex') {
+        modal.style.display = 'none'
+    } else {
+        modal.style.display = 'flex';
+    }
+}
+function onResize() {
+    if (window.innerWidth > 992) {
+        let modal = document.getElementById('modal-header');
+        modal.style.display = 'none'
+    }
+}

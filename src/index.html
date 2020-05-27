@@ -8,15 +8,15 @@
 	<link rel="stylesheet" href="assets/css/animate.css">
 	<link rel=stylesheet href=assets/css/main.css>
 </head>
-<body>
+<body onresize="onResize()">
 <img class="fixed-gift wow pulse infinite" src=assets/img/gift.png alt>
 <header class=header>
 	<div class=container>
 		<div class="col-md-2 col-sm-3 col-xs-6">
-			<button class=burger>
+			<button onclick="openModal()" class=burger>
 				<img src=assets/img/burger.svg alt><span>Каталог товаров</span>
 			</button>
-			<ul class=burger-menu>
+			<ul id="modal-header" class=burger-menu>
 				<li>
 					<a href="#">Картина из вашего фото</a>
 				</li>
