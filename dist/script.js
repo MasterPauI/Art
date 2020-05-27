@@ -1012,6 +1012,10 @@ var blokByImg = function blokByImg() {
   var block2 = document.querySelector('.size-2');
   var block3 = document.querySelector('.size-3');
   var block4 = document.querySelector('.size-4');
+  var parent1 = document.querySelector('.size-1').parentElement;
+  var parent2 = document.querySelector('.size-2').parentElement;
+  var parent3 = document.querySelector('.size-3').parentElement;
+  var parent4 = document.querySelector('.size-4').parentElement;
   loadEvent();
 
   function loadEvent() {
@@ -1027,34 +1031,66 @@ var blokByImg = function blokByImg() {
 
   function runImg1() {
     block1.src = "./assets/img/sizes-1-1.png";
+
+    for (var i = 0; i < parent1.getElementsByTagName('p').length; i++) {
+      parent1.getElementsByTagName('p')[i].style.display = 'none';
+    }
   }
 
   function closeImg1() {
     block1.src = "./assets/img/sizes-1.png";
+
+    for (var i = 0; i < parent1.getElementsByTagName('p').length; i++) {
+      parent1.getElementsByTagName('p')[i].style.display = 'block';
+    }
   }
 
   function runImg2() {
     block2.src = "./assets/img/sizes-2-1.png";
+
+    for (var i = 0; i < parent2.getElementsByTagName('p').length; i++) {
+      parent2.getElementsByTagName('p')[i].style.display = 'none';
+    }
   }
 
   function closeImg2() {
     block2.src = "./assets/img/sizes-2.png";
+
+    for (var i = 0; i < parent2.getElementsByTagName('p').length; i++) {
+      parent2.getElementsByTagName('p')[i].style.display = 'block';
+    }
   }
 
   function runImg3() {
     block3.src = "./assets/img/sizes-3-1.png";
+
+    for (var i = 0; i < parent3.getElementsByTagName('p').length; i++) {
+      parent3.getElementsByTagName('p')[i].style.display = 'none';
+    }
   }
 
   function closeImg3() {
     block3.src = "./assets/img/sizes-3.png";
+
+    for (var i = 0; i < parent3.getElementsByTagName('p').length; i++) {
+      parent3.getElementsByTagName('p')[i].style.display = 'block';
+    }
   }
 
   function runImg4() {
     block4.src = "./assets/img/sizes-4-1.png";
+
+    for (var i = 0; i < parent4.getElementsByTagName('p').length; i++) {
+      parent4.getElementsByTagName('p')[i].style.display = 'none';
+    }
   }
 
   function closeImg4() {
     block4.src = "./assets/img/sizes-4.png";
+
+    for (var i = 0; i < parent4.getElementsByTagName('p').length; i++) {
+      parent4.getElementsByTagName('p')[i].style.display = 'block';
+    }
   }
 };
 
@@ -1091,7 +1127,6 @@ var closePopupGift = function closePopupGift() {
   }
 
   closeBtnx.addEventListener('click', function () {
-    // popupGift.classList.remove('popup-gift');
     window.removeEventListener('scroll', closeGift);
   });
 };
