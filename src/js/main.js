@@ -9,10 +9,10 @@ import closePopupGift from "./modules/closeGift"
 window.addEventListener('DOMContentLoaded', () => {
     "use strict";
     modals();
-    slider('.main-slider-item',".animated",".slideInDown");
-    // slider('.main-slider-item',".animated",".slideInUp");
-    // slider('.main-slider-item',".animated",".slideInLeft");
-    // slider('.main-slider-item',".animated",".slideInRight");
+    slider('.main-slider-item',"animated","slideInDown");
+    // slider('.main-slider-item',"animated","slideInUp");
+    // slider('.main-slider-item',"animated","slideInLeft");
+    // slider('.main-slider-item',"animated","slideInRight");
 
 
     blokByImg();
