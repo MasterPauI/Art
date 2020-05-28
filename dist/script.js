@@ -939,6 +939,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_closeGift__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/closeGift */ "./src/js/modules/closeGift.js");
 
 
+ // import blokByImg from "./modules/task9"
 
 
 
@@ -951,6 +952,10 @@ window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_slide__WEBPACK_IMPORTED_MODULE_1__["default"])('.main-slider-item', ".animated", ".slideInDown"); // slider('.main-slider-item',".animated",".slideInUp");
   // slider('.main-slider-item',".animated",".slideInLeft");
   // slider('.main-slider-item',".animated",".slideInRight");
+  // blokByImg('.size-1', "./assets/img/sizes-1-1.png", './assets/img/sizes-1.png');
+  // blokByImg('.size-2', './assets/img/sizes-2-1.png', './assets/img/sizes-2.png');
+  // blokByImg('.size-3', './assets/img/sizes-3-1.png', './assets/img/sizes-3.png');
+  // blokByImg('.size-4', './assets/img/sizes-4-1.png', './assets/img/sizes-4.png');
 
   Object(_modules_changeBlockByImg__WEBPACK_IMPORTED_MODULE_2__["default"])();
   Object(_modules_sliderAndButton_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
@@ -1109,10 +1114,15 @@ var blokByImg = function blokByImg() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__);
+
+
 var closePopupGift = function closePopupGift() {
   var closeBtnx = document.querySelector('.popup-gift .popup-close');
   var popupGift = document.querySelector('.popup-gift');
   var fixedGift = document.querySelector(".fixed-gift");
+  var button = document.querySelectorAll('.button');
   window.addEventListener('scroll', closeGift);
 
   function closeGift() {
@@ -1128,9 +1138,19 @@ var closePopupGift = function closePopupGift() {
     }
   }
 
-  closeBtnx.addEventListener('click', function () {
-    window.removeEventListener('scroll', closeGift);
-  });
+  function stopEvent() {
+    closeBtnx.addEventListener('click', function () {
+      window.removeEventListener('scroll', closeGift);
+    });
+    button.forEach(function (buton) {
+      buton.addEventListener("click", function () {
+        window.removeEventListener('scroll', closeGift);
+        fixedGift.style.display = "none";
+      });
+    });
+  }
+
+  stopEvent();
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (closePopupGift);
