@@ -948,9 +948,9 @@ window.addEventListener('DOMContentLoaded', function () {
   "use strict";
 
   Object(_modules_modals_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
-  Object(_modules_slide__WEBPACK_IMPORTED_MODULE_1__["default"])('.main-slider-item', "verticalInDown"); // slider('.main-slider-item',"verticalUpDown");
-  // slider('.feedback-slider-item',"orizontalLeft");
-  // slider('.main-slider-item',"orizontalRight");
+  Object(_modules_slide__WEBPACK_IMPORTED_MODULE_1__["default"])('.main-slider-item', ".animated", ".slideInDown"); // slider('.main-slider-item',".animated",".slideInUp");
+  // slider('.main-slider-item',".animated",".slideInLeft");
+  // slider('.main-slider-item',".animated",".slideInRight");
 
   Object(_modules_changeBlockByImg__WEBPACK_IMPORTED_MODULE_2__["default"])();
   Object(_modules_sliderAndButton_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
@@ -1067,6 +1067,8 @@ var blokByImg = function blokByImg() {
     for (var i = 0; i < parent3.getElementsByTagName('p').length; i++) {
       parent3.getElementsByTagName('p')[i].style.display = 'none';
     }
+
+    parent3.getElementsByTagName('p')[3].style.display = 'block';
   }
 
   function closeImg3() {
@@ -1269,50 +1271,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__);
 
 
-var slider = function slider(slideName, direction) {
-  var slideCounter = 0;
+var slider = function slider(slideName, selectorAnimate1, selectorAnimate2) {
+  var slideIndex = 0;
   showSlides();
 
   function showSlides() {
     var slides = document.querySelectorAll(slideName);
-
-    switch (direction) {
-      case "verticalInDown":
-        slides.forEach(function (slid) {
-          slid.classList.add("animated", "slideInDown");
-        });
-        break;
-
-      case "verticalUpDown":
-        slides.forEach(function (slid) {
-          slid.classList.add("animated", "slideInUp");
-        });
-        break;
-
-      case "orizontalLeft":
-        slides.forEach(function (slid) {
-          slid.classList.add("animated", "slideInLeft");
-        });
-        break;
-
-      case "orizontalRight":
-        slides.forEach(function (slid) {
-          slid.classList.add("animated", "slideInRight");
-        });
-        break;
-    }
+    slides.forEach(function (slid) {
+      slid.classList.add(selectorAnimate1, selectorAnimate2);
+    });
 
     for (var i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
     }
 
-    slideCounter++;
+    slideIndex++;
 
-    if (slideCounter > slides.length) {
-      slideCounter = 1;
+    if (slideIndex > slides.length) {
+      slideIndex = 1;
     }
 
-    slides[slideCounter - 1].style.display = "block";
+    slides[slideIndex - 1].style.display = "block";
     setTimeout(showSlides, 3000);
   }
 };
