@@ -1,6 +1,8 @@
 import modals from "./modules/modals.js"
 import slider from "./modules/slide"
 import blokByImg from "./modules/changeBlockByImg"
+import price from "./modules/price"
+import modal from "./modules/modal"
 // import blokByImg from "./modules/task9"
 import sliderAndButton from "./modules/sliderAndButton.js"
 import accordion from "./modules/accordion";
@@ -25,6 +27,8 @@ window.addEventListener('DOMContentLoaded', () => {
     accordion ();
     inactivityTime();
     closePopupGift();
+    price();
+    modal();
 });
 
 

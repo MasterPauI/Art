@@ -194,6 +194,7 @@ h4 {
   padding: 0;
   margin: 0;
   width: 20rem;
+  flex-direction: column;
 }
 .header .burger-menu li {
   padding: 2rem;

@@ -933,10 +933,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_modals_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/modals.js */ "./src/js/modules/modals.js");
 /* harmony import */ var _modules_slide__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/slide */ "./src/js/modules/slide.js");
 /* harmony import */ var _modules_changeBlockByImg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/changeBlockByImg */ "./src/js/modules/changeBlockByImg.js");
-/* harmony import */ var _modules_sliderAndButton_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/sliderAndButton.js */ "./src/js/modules/sliderAndButton.js");
-/* harmony import */ var _modules_accordion__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/accordion */ "./src/js/modules/accordion.js");
-/* harmony import */ var _modules_showModalByTime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/showModalByTime */ "./src/js/modules/showModalByTime.js");
-/* harmony import */ var _modules_closeGift__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/closeGift */ "./src/js/modules/closeGift.js");
+/* harmony import */ var _modules_price__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/price */ "./src/js/modules/price.js");
+/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/modal */ "./src/js/modules/modal.js");
+/* harmony import */ var _modules_sliderAndButton_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/sliderAndButton.js */ "./src/js/modules/sliderAndButton.js");
+/* harmony import */ var _modules_accordion__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/accordion */ "./src/js/modules/accordion.js");
+/* harmony import */ var _modules_showModalByTime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/showModalByTime */ "./src/js/modules/showModalByTime.js");
+/* harmony import */ var _modules_closeGift__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/closeGift */ "./src/js/modules/closeGift.js");
+
+
 
 
  // import blokByImg from "./modules/task9"
@@ -958,10 +962,12 @@ window.addEventListener('DOMContentLoaded', function () {
   // blokByImg('.size-4', './assets/img/sizes-4-1.png', './assets/img/sizes-4.png');
 
   Object(_modules_changeBlockByImg__WEBPACK_IMPORTED_MODULE_2__["default"])();
-  Object(_modules_sliderAndButton_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
-  Object(_modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"])();
-  Object(_modules_showModalByTime__WEBPACK_IMPORTED_MODULE_5__["default"])();
-  Object(_modules_closeGift__WEBPACK_IMPORTED_MODULE_6__["default"])();
+  Object(_modules_sliderAndButton_js__WEBPACK_IMPORTED_MODULE_5__["default"])();
+  Object(_modules_accordion__WEBPACK_IMPORTED_MODULE_6__["default"])();
+  Object(_modules_showModalByTime__WEBPACK_IMPORTED_MODULE_7__["default"])();
+  Object(_modules_closeGift__WEBPACK_IMPORTED_MODULE_8__["default"])();
+  Object(_modules_price__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  Object(_modules_modal__WEBPACK_IMPORTED_MODULE_4__["default"])();
 });
 
 /***/ }),
@@ -1157,6 +1163,49 @@ var closePopupGift = function closePopupGift() {
 
 /***/ }),
 
+/***/ "./src/js/modules/modal.js":
+/*!*********************************!*\
+  !*** ./src/js/modules/modal.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _modals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modals */ "./src/js/modules/modals.js");
+
+
+var modal = function modal() {
+  var button = document.getElementById('modal-button');
+  var body = document.getElementById('body');
+  button.addEventListener('click', onClick);
+  body.addEventListener('resize', onResize);
+
+  function onClick() {
+    var modalHeader = document.getElementById('modal-header');
+
+    if (modalHeader.style.display === 'flex') {
+      modalHeader.style.display = 'none';
+    } else {
+      modalHeader.style.display = 'flex';
+    }
+  }
+
+  function onResize() {
+    console.log('am intrat');
+    var modalHeader = document.getElementById('modal-header');
+    console.log(window.innerWidth);
+
+    if (window.innerWidth > 992) {
+      modalHeader.style.display = 'none';
+    }
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (modal);
+
+/***/ }),
+
 /***/ "./src/js/modules/modals.js":
 /*!**********************************!*\
   !*** ./src/js/modules/modals.js ***!
@@ -1219,6 +1268,88 @@ var modals = function modals() {
 
 
 /* harmony default export */ __webpack_exports__["default"] = (modals);
+
+/***/ }),
+
+/***/ "./src/js/modules/price.js":
+/*!*********************************!*\
+  !*** ./src/js/modules/price.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var price = function price() {
+  var select = document.getElementById('size');
+  var select2 = document.getElementById('material');
+  var select3 = document.getElementById('options');
+  var select4 = document.getElementById('promocode');
+  select.addEventListener('change', getPrice);
+  select2.addEventListener('change', getPrice);
+  select3.addEventListener('change', getPrice);
+  select4.addEventListener('change', getPrice);
+
+  function getPrice() {
+    var value = select.options[select.selectedIndex].text;
+    var value2 = select2.options[select2.selectedIndex].text;
+    var price = 0;
+    var value3 = select3.options[select3.selectedIndex].text;
+
+    if (value !== 'Выберите размер картины' && value2 !== 'Выберите материал картины') {
+      if (value === '40x50') {
+        price = price + 10;
+      }
+
+      if (value === '50x70') {
+        price = price + 20;
+      }
+
+      if (value === '70x70') {
+        price = price + 30;
+      }
+
+      if (value === '70x100') {
+        price = price + 40;
+      }
+
+      if (value2 === 'Холст из волокна') {
+        price = price + 10;
+      }
+
+      if (value2 === 'Льняной холст') {
+        price = price + 20;
+      }
+
+      if (value2 === 'Холст из натурального хлопка') {
+        price = price + 30;
+      }
+
+      if (value3 === 'Покрытие арт-гелем') {
+        price = price + 10;
+      }
+
+      if (value3 === 'Экспресс-изготовление') {
+        price = price + 20;
+      }
+
+      if (value3 === 'Доставка готовых работ') {
+        price = price + 30;
+      }
+
+      var promocode = document.getElementById('promocode').value;
+
+      if (promocode === 'IWANTPOPART') {
+        price = price * 70 / 100;
+      }
+
+      var priceElement = document.getElementById('calc-price');
+      priceElement.textContent = price;
+    }
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (price);
 
 /***/ }),
 

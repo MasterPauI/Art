@@ -8,15 +8,15 @@
 	<link rel="stylesheet" href="assets/css/animate.css">
 	<link rel=stylesheet href=assets/css/main.css>
 </head>
-<body>
+<body id="body">
 <button class="button button-order-img"> <img class="fixed-gift wow pulse infinite" src=assets/img/gift.png alt> </button>
 <header class=header>
 	<div class=container>
 		<div class="col-md-2 col-sm-3 col-xs-6">
-			<button class=burger>
+			<button id='modal-button' class=burger>
 				<img src=assets/img/burger.svg alt><span>Каталог товаров</span>
 			</button>
-			<ul class=burger-menu>
+			<ul id='modal-header' class=burger-menu>
 				<li>
 					<a href="#">Картина из вашего фото</a>
 				</li>
@@ -257,8 +257,8 @@
 						<option >Экспресс-изготовление</option>
 						<option >Доставка готовых работ </option>
 					</select>
-					<input type="text" class="promocode" placeholder="Введите ваш промокод">
-					<div class=calc-price>Для расчета нужно выбрать размер картины и материал картины</div>
+					<input id='promocode' type="text" class="promocode" placeholder="Введите ваш промокод">
+					<div id='calc-price' class=calc-price>Для расчета нужно выбрать размер картины и материал картины</div>
 					<button class="button button-order">Быстрый заказ</button>
 				</form>
 			</div>
